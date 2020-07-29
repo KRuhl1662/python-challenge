@@ -28,14 +28,15 @@ with open(election_csv,'r') as csv_file:
        
 
 
-#A complete list of candidates who received votes    
-    for i in Candidate:
-        if i not in Candidate_Clean:
-            Candidate_Clean.append(i)
+#A complete list of candidates who received votes (didn't end up using this ,but wanted to keep it)   
+    # for i in Candidate:
+    #     if i not in Candidate_Clean:
+    #         Candidate_Clean.append(i)
 
             #print(i)
-
     #print(Candidate_Clean)
+
+
 
 #count number of votes per candidate
 Candidate_Votes={}
@@ -47,8 +48,6 @@ for item in Candidate:
     else:
         Candidate_Votes[item] += 1
     
-        
-#print(Candidate_Votes)
 
 #The total number of votes cast
 TotalVotes = len(VoterID)
@@ -59,6 +58,7 @@ print("------------------------------")
 print("Total Votes: ",TotalVotes)
 print("------------------------------")
 
+#Use Candidate Votes dictionary in loop to print for each value and its key, also calculate average
 for k,v in Candidate_Votes.items():
     percentage = (v/TotalVotes)*100
     print(f"{k} : {percentage:.3f}% ({v})")
@@ -75,11 +75,4 @@ print("------------------------------")
 
 
 
-#The percentage of votes each candidate won
-
-
-#The total number of votes each candidate won
-
-
-#The winner of the election based on popular vote.
 

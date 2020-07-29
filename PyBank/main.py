@@ -22,7 +22,7 @@ with open(csv_path) as csv_file:
     for row in csv_reader:
         Date.append(row[0])
         Profit_Losses.append(int(row[1]))
-    #print (Date)
+    
 
 # -To get the total number of months included in the dataset, put column A in a list and count using length
 month_count = len(Date)
@@ -37,11 +37,12 @@ def Sum(numbers):
 
  
 # calculate the profit/losses each month
-#Difference.append(none)
+
 for i in range (1 , month_count):
     x = Profit_Losses[i] - Profit_Losses[i-1]
     Difference.append(x)
 
+# formula to calculate the average (used in print at bottom)
 def Average(numbers):
     total = 0.00
     length = len(numbers)   
@@ -49,13 +50,17 @@ def Average(numbers):
         total += number
     return total / length
 
+#return max and min values in list Difference 
 Max_Profit = max(Difference) 
 Min_Profit = min(Difference)
 
+#find index of Max Profit in list Difference
 x = Difference.index(Max_Profit)
 
+#use index from difference to find Date, need to add 1 because of different length of lists
 Max_Date=Date[x+1]
 
+#repeat for Min Profit and Min Date
 y = Difference.index(Min_Profit)
 
 Min_Date=Date[y+1]
